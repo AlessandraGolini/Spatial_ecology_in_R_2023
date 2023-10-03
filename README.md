@@ -1,7 +1,7 @@
 # Spatial Ecology in R 👾
 
-## Student 👩‍🔬
-Alessandra Golini
+## Professor 👩‍🔬
+Duccio Rocchini
 
 ## Main scripts in this repo 💻
 + scripts on populations
