@@ -1,2 +1,12 @@
-# Spatial_ecology_in_R_23
-Repo on the course Spatial Ecology in R at UNIBO
+# Spatial Ecology in R 👾
+
+## Student 👩‍🔬
+Alessandra Golini
+
+## Main scripts in this repo 💻
++ scripts on populations
++ scripts on communities
++ scripts on ecosystems
+
+> **Note**
+> Scripts will be added lecture by lecture
