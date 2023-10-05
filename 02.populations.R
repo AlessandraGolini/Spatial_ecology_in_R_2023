@@ -1,0 +1,37 @@
+# Code realted to population ecology
+
+# A package is needed for point pattern analysis: spatstat (frm the network CRAN)
+install.packages("spatstat") # this is the function used to install packages and the argument is between round parenthesis, with quotes because the package is still outside R
+library(spatstat)
+
+# the data are directly inside the packages
+# let's use the bei data:
+# data description 
+#https://cran.r-project.org/web/packages/spatstat/index.html
+
+bei
+plot(bei) 
+
+#the points in the plot are huge with respect to the area, so I change them with "character exageration"
+plot(bei, cex = 0.2)
+#changing the symbol with pch
+plot(bei, cex = 0.4, pch=19)
+
+#inside the package there is another dataset: additional dataset
+bei.extra
+
+#to extract a single part of a dataset there are different ways
+plot(bei.extra)
+#a RASTER is an image made of pixels
+#we need to use only one element of the dataset (only elevation)
+
+#let's use only part of the dataset: elev
+plot(bei.extra$elev) # the dollar symbol links the element to the dataset but we assign it to an object
+elevation <- bei.extra$elev
+plot(elevation)
+
+#second method to select elements
+elevation2 <- bei.extra[[1]] #double quadratic parenthesis because we're in two dimensions
+plot(elevation2)
+
+
