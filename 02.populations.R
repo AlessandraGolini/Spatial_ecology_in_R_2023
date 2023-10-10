@@ -34,16 +34,7 @@ plot(elevation)
 elevation2 <- bei.extra[[1]] #double quadratic parenthesis because we're in two dimensions
 plot(elevation2)
 
-#######################################
-# install the packages
-install.packages("sdm")
-install.packages("terra")
-install.packages("rgdal")
-
-library(sdm)
-library(terra)
-library(rgdal)
-########################################
+##########################################################
 
 # passing from points to a coninuous surface: INTERPOLATION
 densitymap <- density(bei)
@@ -78,3 +69,14 @@ par(mfrow = c(1,3))
 plot(bei)
 plot(densitymap)
 plot(elev)
+
+#######################################
+# install the packages
+install.packages("sdm")
+install.packages("terra")
+install.packages("rgdal")
+
+library(sdm)
+library(terra)
+library(rgdal)
+########################################
