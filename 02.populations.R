@@ -35,3 +35,11 @@ elevation2 <- bei.extra[[1]] #double quadratic parenthesis because we're in two 
 plot(elevation2)
 
 
+# install the packages
+install.packages("sdm")
+install.packages("terra")
+install.packages("rgdal")
+
+library(sdm)
+library(terra)
+library(rgdal)
