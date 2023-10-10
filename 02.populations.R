@@ -9,7 +9,7 @@ library(spatstat)
 # data description 
 #https://cran.r-project.org/web/packages/spatstat/index.html
 
-bei
+bei #trees in the tropical forest 
 plot(bei) 
 
 #the points in the plot are huge with respect to the area, so I change them with "character exageration"
@@ -34,6 +34,18 @@ plot(elevation)
 elevation2 <- bei.extra[[1]] #double quadratic parenthesis because we're in two dimensions
 plot(elevation2)
 
+#######################################
+# passing from points to a coninuous surface: INTERPOLATION
+densitymap <- density(bei)
+plot(densitymap)
+points(bei, cex=.5)
+
+cl <- colorRampPalette(c("black", "red", "orange", "yellow"))(100) #merge all the colors together in one array
+#100 is the gradient = number of different colors passing from one to another
+plot(densitymap, col = cl)
+# it is important to use the yellow color for high values because it is the first one you see in a map!!
+
+
 
 # install the packages
 install.packages("sdm")
@@ -43,3 +55,4 @@ install.packages("rgdal")
 library(sdm)
 library(terra)
 library(rgdal)
+
