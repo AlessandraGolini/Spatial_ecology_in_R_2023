@@ -35,6 +35,16 @@ elevation2 <- bei.extra[[1]] #double quadratic parenthesis because we're in two 
 plot(elevation2)
 
 #######################################
+# install the packages
+install.packages("sdm")
+install.packages("terra")
+install.packages("rgdal")
+
+library(sdm)
+library(terra)
+library(rgdal)
+########################################
+
 # passing from points to a coninuous surface: INTERPOLATION
 densitymap <- density(bei)
 plot(densitymap)
@@ -44,15 +54,27 @@ cl <- colorRampPalette(c("black", "red", "orange", "yellow"))(100) #merge all th
 #100 is the gradient = number of different colors passing from one to another
 plot(densitymap, col = cl)
 # it is important to use the yellow color for high values because it is the first one you see in a map!!
+# do never ever use a rainbow color palettes! because they are a mess for color-blind people
+# https://r-graph-gallery.com/42-colors-names_files/figure-html/thecode-1.png COLORS IN R
 
+cl <- colorRampPalette(c("black", "red", "orange", "yellow"))(4)
+plot(densitymap, col = cl) #there is no continuity because we use only 4 colors!
 
+###
+plot(bei.extra) #we want to select the first element of the dataset
+elev <- bei.extra[[1]]     #elev <- bei.extra$elev
+plot(elev)
 
-# install the packages
-install.packages("sdm")
-install.packages("terra")
-install.packages("rgdal")
+###
+par(mfrow = c(1,2)) #multiframe of 1row  and 2columns
+plot(densitymap)
+plot(elev)
 
-library(sdm)
-library(terra)
-library(rgdal)
+par(mfrow = c(2,1))
+plot(densitymap)
+plot(elevation)
 
+par(mfrow = c(1,3))
+plot(bei)
+plot(densitymap)
+plot(elev)
