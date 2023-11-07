@@ -49,7 +49,6 @@ plot(b4, col = cl)
 b8 <- im.import("sentinel.dolomites.b8.tif")
 plot(b8, col = cl)
 
-
 par(mfrow = c(2,2))
 plot(b2, col = cl)
 plot(b3, col = cl)
@@ -94,5 +93,23 @@ plot(b8, col = cl8)
 #band4 red element 3, stacksent[[3]]
 #band8 nir element 4, stacksent[[4]]
 im.plotRGB(stacksent, r=3, g=2, b=1)
+
+#we can change the position of the NIR, putting in the red component or in the green component
+# (the highest amount of informations are given by nir)
+im.plotRGB(stacksent, r=4, g=3, b=2) #you can see two types of vegetation: the dark part is forest, de light red is grassland
+im.plotRGB(stacksent, r=3, g=4, b=2) #everything that is becoming fluorescent green is vegetation; bare soil is in violet
+#final composition in which we can use the NIR: moving it from the green component to the blue one
+im.plotRGB(stacksent, r=3, g=2, b=4) #everything reflecting the nir will become blue; cities in yellow
+
+
+# you want to see the correlation between the bands: you correlate the value of every (two) pixels, making a graph of correlation
+# there is a function that does that:
+# pairs() - https://www.rdocumentation.org/packages/graphics/versions/3.6.2/topics/pairs
+pairs(stacksent)
+
+#you obtain the graphs and the Pierson correlation coefficient.
+#all the visible bans are highly correlated to each otehr
+#if you use the nir, the values of correlation are lower, which means that this band is adding additional informations.
+
 
 
