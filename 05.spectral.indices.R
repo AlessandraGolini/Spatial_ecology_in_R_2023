@@ -90,3 +90,8 @@ clvir <- colorRampPalette(c("violet", "dark blue", "blue", "green", "yellow"))(1
 par(mfrow=c(1,2))
 plot(ndvi1992, col=clvir)
 plot(ndvi2006, col=clvir)
+dev.off()
+
+## speediing up calculation with a funtion from the imageRy package that compute directly the NDVI
+ndvi2006a <- im.ndvi(m2006, 1, 2)
+plot(ndvi2006a, col=cl)
