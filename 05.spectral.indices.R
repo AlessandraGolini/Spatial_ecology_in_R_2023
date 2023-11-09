@@ -27,4 +27,6 @@ im.plotRGB(m2006, r=2, g=3, b=1) #you can see how much yellow color there is now
 
 #THE YELLOW COLOR CATCHES THE ATTENTION!!!
 
+#### (09/11/2023)
+# exercise: build a multiframe with 1992 and 2006 images
 
