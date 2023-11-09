@@ -32,23 +32,23 @@ par(mfrow=c(1,2)) #one row and two columns
 im.plotRGB(m1992, r=2, g=3, b=1) 
 im.plotRGB(m2006, r=2, g=3, b=1)
 
-## let's create vegetation indices to visualize and measure the health of the vegetation situation.
+### let's create vegetation indices to visualize and measure the health of the vegetation situation.
 dev.off()
 #plot the first element of the image in 1992
 plot(m1992[[1]])
-#the range of reflectance is from 0 to 255: this is because reflectance is the ratio between the incident flux of energy and the reflected flux
-#but this would lead to float numbers and we want to avoid them because they require space in our computer.
-#therefore, we use bits: 1 bit = or 0 or 1: the BINARY CODE
-#we can use binary code to build every information in the computer
-#With 1 bit you have 2 information: 0 or 1.
-#With 2 bits you have 4 information: 00, 01, 10, 11
-#With 3 bits you have 8 info
-#with 4 bits you have 16 info
-#most of the images are storaged in 8 BIT: they are a lot of information but reducing the storaging space required.
+##the range of reflectance is from 0 to 255: this is because reflectance is the ratio between the incident flux of energy and the reflected flux
+##but this would lead to float numbers and we want to avoid them because they require space in our computer.
+##therefore, we use bits: 1 bit = or 0 or 1: the BINARY CODE
+##we can use binary code to build every information in the computer
+##With 1 bit you have 2 information: 0 or 1.
+##With 2 bits you have 4 information: 00, 01, 10, 11
+##With 3 bits you have 8 info
+##with 4 bits you have 16 info
+##most of the images are storaged in 8 BIT: they are a lot of information but reducing the storaging space required.
 
-#a tree is reflecting a lot in the NIR and absorbing a lot in the RED
-#DVI = DIFFERENCE VEGETATIO INDEX ----> you make the difference between the total bits and the REDs (ex. 255-10 = 245 is the DVI of a living plant; 255-
-#DVI = difference between NIR and RED
+##a tree is reflecting a lot in the NIR and absorbing a lot in the RED
+##DVI = DIFFERENCE VEGETATIO INDEX ----> you make the difference between the total bits and the REDs (ex. 255-10 = 245 is the DVI of a living plant; 255-
+##DVI = difference between NIR and RED
 
 dvi1992 = m1992[[1]] - m1992[[2]] #i'm using the equal = and not the assign <- because it is an operation
 plot(dvi1992)
@@ -61,3 +61,32 @@ plot(dvi1992, col=cl)
 dvi2006 = m2006[[1]] - m2006[[2]]
 plot(dvi2006, col=cl)
 #we have a situation in which the healthy vegetation is really a small amount of the total 
+
+##you can standardize the DVI: NORMALIZATION in order to compare data
+## DVI = NIR - RED
+## NDVI = (NIR - RED)/(NIR+RED)
+##in this way the ranges of the indexes are the same
+##the NDVI is always ranging from -1 =(0-255)/(0+255) to +1 =(255-0)/(255+0), while the DVI's range depends on the amount of data I have
+#the calculation is done pixel by pixel
+
+# NDVI
+ndvi1992 = (m1992[[1]] - m1992[[2]]) / (m1992[[1]] + m1992[[2]])
+ndvi1992 = dvi1992 / (m1992[[1]] + m1992[[2]])
+plot(ndvi1992, col=cl)
+#you can see the new range is from -1 to 1 so it can be compared to any kind of image since the range will be the same
+#the dark red parts indicate the healthy vegetation
+
+ndvi2006 = (m2006[[1]] - m2006[[2]]) / (m2006[[1]] + m2006[[2]])
+ndvi2006 = dvi2006 / (m2006[[1]] + m2006[[2]])
+plot(ndvi2006, col=cl)
+
+#plot them together in a par()
+par(mfrow=c(1,2)) #one row and two columns
+plot(ndvi1992, col=cl)
+plot(ndvi2006, col=cl)
+
+#there's another palette that could be relevant:
+clvir <- colorRampPalette(c("violet", "dark blue", "blue", "green", "yellow"))(100) # specifying a color scheme
+par(mfrow=c(1,2))
+plot(ndvi1992, col=clvir)
+plot(ndvi2006, col=clvir)
