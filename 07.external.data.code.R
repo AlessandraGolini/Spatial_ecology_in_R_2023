@@ -42,3 +42,7 @@ plotRGB(mato, r=1, g=2, b=3) #the near infrared is on top of the red layer
 #ncdf4: Interface to Unidata netCDF (Version 4 or Earlier) Format Data Files
 install.packages("ncdf4")
 library(ncdf4)
+
+
+## SENTINEL DATA 2016 - now
+## for longer time periods (from 1972): LANDSAT
