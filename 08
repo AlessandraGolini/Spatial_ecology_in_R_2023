@@ -1,0 +1,13 @@
+## ????
+
+
+library(terra)
+library(ncdf4)
+setwd("C:/Users/aless/OneDrive - Alma Mater Studiorum Università di Bologna/Global Change Ecology and SDGs/Spatial Ecology in R/R")
+
+imagel <- rast("c_gls_SWI-TS_202306300000_C0014_ASCAT_V3.2.1.nc")
+imagel
+plot("imagel")
+imagel
+
+#vez, guarda il codice del prof e quello di serena!!
