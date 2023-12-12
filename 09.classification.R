@@ -101,5 +101,17 @@ p2 <- ggplot(tabout, aes(x=class, y=y2006, color=class)) + geom_bar(stat="identi
 p1
 p2
 dev.off()
+
 # Arrange the plots in a grid
-grid.arrange(p1, p2, ncol=2)
+#grid.arrange(p1, p2, ncol=2)
+install.packages("patchwork")
+library(patchwork)
+p1+p2
+#but in this way we have different scales in the two graphs!
+
+# final output, rescaled
+p1 <- ggplot(tabout, aes(x=class, y=y1992, color=class)) + geom_bar(stat="identity", fill="white") + ylim(c(0,100))
+p2 <- ggplot(tabout, aes(x=class, y=y2006, color=class)) + geom_bar(stat="identity", fill="white") + ylim(c(0,100))
+p1+p2                                                                          
+#in this way you can actually appreciate the amount of forest loss
+
