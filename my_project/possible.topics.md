@@ -35,3 +35,7 @@ https://earthobservatory.nasa.gov/images/152378/retreat-at-klinaklini
 
 # Regenerated forest in Nepal
 https://earthobservatory.nasa.gov/images/150937/how-nepal-regenerated-its-forests
+
+
+# noiceeeee
+https://earthobservatory.nasa.gov/images/87176/when-a-definition-makes-a-forest-disappear
