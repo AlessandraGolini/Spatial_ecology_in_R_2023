@@ -29,3 +29,6 @@ https://earthobservatory.nasa.gov/images/150513/deforestation-follows-a-road-thr
 
 # snowpack sierra nevada
 https://earthobservatory.nasa.gov/world-of-change/SierraNevada
+
+# retreat at Klinaklini
+https://earthobservatory.nasa.gov/images/152378/retreat-at-klinaklini
