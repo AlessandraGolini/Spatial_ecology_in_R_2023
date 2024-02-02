@@ -32,3 +32,6 @@ https://earthobservatory.nasa.gov/world-of-change/SierraNevada
 
 # retreat at Klinaklini
 https://earthobservatory.nasa.gov/images/152378/retreat-at-klinaklini
+
+# Regenerated forest in Nepal
+https://earthobservatory.nasa.gov/images/150937/how-nepal-regenerated-its-forests
