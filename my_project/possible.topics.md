@@ -15,6 +15,7 @@ https://earthobservatory.nasa.gov/world-of-change/Deforestation
 https://earthobservatory.nasa.gov/images/151515/protected-areas-safeguard-climate
 
 uhh questi voglio leggerliiiii!
+
 https://www.nature.com/articles/s41558-021-01161-z 
 Prioritizing forestation based on biogeochemical and local biogeophysical impacts
 
