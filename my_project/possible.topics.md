@@ -16,10 +16,10 @@ https://earthobservatory.nasa.gov/images/151515/protected-areas-safeguard-climat
 
 uhh questi voglio leggerliiiii!
 
-https://www.nature.com/articles/s41558-021-01161-z 
++ https://www.nature.com/articles/s41558-021-01161-z 
 Prioritizing forestation based on biogeochemical and local biogeophysical impacts
 
-https://www.nature.com/articles/s41467-023-38073-9
++ https://www.nature.com/articles/s41467-023-38073-9
 The effectiveness of global protected areas for climate change mitigation
 
 # flooding in emilia romagna (4 maggio)
