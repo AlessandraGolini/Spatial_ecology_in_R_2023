@@ -8,6 +8,9 @@ ma forse non ci sono immagini oltre all'animazione?
 # indigenous populations in the amazon
 https://earthobservatory.nasa.gov/images/151921/indigenous-communities-protect-the-amazon
 
+deforestation in the state of Rondônia in western Brazil
+https://earthobservatory.nasa.gov/world-of-change/Deforestation
+
 # protected areas safeguard climate
 https://earthobservatory.nasa.gov/images/151515/protected-areas-safeguard-climate
 
