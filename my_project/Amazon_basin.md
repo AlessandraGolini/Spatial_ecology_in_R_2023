@@ -29,3 +29,7 @@ Remote-sensed deforestation alerts provide high-frequency information on tree co
 https://earthobservatory.nasa.gov/images/7548/deforestation-in-rondonia-brazil 
 
 https://earthobservatory.nasa.gov/world-of-change/Deforestation
+
+https://na.unep.net/atlas/webatlas.php?id=29 1975-2001.
+UNEP, n.d., Rondônia. Environmental Change Hotspots. Division of Early Warning and Assessment (DEWA). United Nations Environment Programme (UNEP). <https://na.unep.net/atlas/webatlas.php?id=2287> (Accessed on 18.02.24).
+
