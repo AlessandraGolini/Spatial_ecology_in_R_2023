@@ -1,10 +1,20 @@
 1. INTRODUCTION
-   + the aim of the project is 
+   + the aim of the project is ...
+
+## Idea generale
+vorrei fondamentalmente analizzare le immagini del bioma amazzonico e della sua deforestazione (si può per tutto il bacino? ha senso così in grande scala?), per poi confrontare i luoghi deforestati con i territori indigeni.
+Questo vuol dire che potrei prendere l'immagine da EO che è già a colori non-reali, oppure farla più complessa cercando di usare i dati di Copernicus (bisogna però restringere il campo). Eventualmente ho anche il NDVI di MODIS, mentre raigs e mapbiomas non so bene come usarli...
+
+L'idea di base è quella di vedere se la definizione di aree protette e/o aree indigene previene dalla deforestazione o dallos fruttamento delle risorse di tale bacino, dal momento che è tanto buono e caro per tutte le cose e le persone e gli animali ecc.
+
+Eventualmente, potrei poi fare un dettaglio sulla deforestazione di una particolare zona dell'Amazzonia (es. Rondonia?)
+
+
 
 ### Earth observatory
-https://earthobservatory.nasa.gov/images/145649/mapping-the-amazon MAPPING THE AMAZON
+https://earthobservatory.nasa.gov/images/145649/mapping-the-amazon MAPPING THE AMAZON (settembre 2019)
 
-https://earthobservatory.nasa.gov/images/151921/indigenous-communities-protect-the-amazon INDIGENOUS TERRITORIES
+https://earthobservatory.nasa.gov/images/151921/indigenous-communities-protect-the-amazon INDIGENOUS TERRITORIES (2023)
 
 ### Copernicus Global Land service - Vegetation indicators, NDVI 1km V2.2 Global
 https://land.copernicus.vgt.vito.be/PDF/portal/Application.html#Browse;Root=513186;Collection=1000085;DoSearch=true;Time=NORMAL,NORMAL,1,JANUARY,2019,-1,,;isReserved=false
