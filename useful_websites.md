@@ -1,9 +1,10 @@
 # Some useful websites
 ## MapBiomas Amazonìa
-https://amazonia.mapbiomas.org/en/
+https://amazonia.mapbiomas.org/en/ niceee
 
 ##  Amazon Geo-Referenced Socio-Environmental Information Network (RAISG)
 https://www.raisg.org/en/
+https://www.raisg.org/es/mapas/ Bello! ci sono da scaricare e anche le mappe interattive online!
 
 ## World Wildlife Fund HydroSHEDS Project
 https://www.hydrosheds.org/ 
