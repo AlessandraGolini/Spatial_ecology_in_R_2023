@@ -19,11 +19,12 @@ With seven successive satellites, **Landsat** has taken a snapshot of every part
 https://earthobservatory.nasa.gov/images/4385/deforestation-patterns-in-the-amazon
 
 ### indigenous people
-https://earthobservatory.nasa.gov/images/151921/indigenous-communities-protect-the-amazon
++ https://earthobservatory.nasa.gov/images/151921/indigenous-communities-protect-the-amazon
 
-https://www.pnas.org/doi/full/10.1073/pnas.2015171118 **Satellite-based deforestation alerts with training and incentives for patrolling facilitate community monitoring in the Peruvian Amazon**:
-
++ https://www.pnas.org/doi/full/10.1073/pnas.2015171118 **Satellite-based deforestation alerts with training and incentives for patrolling facilitate community monitoring in the Peruvian Amazon**:
 Remote-sensed deforestation alerts provide high-frequency information on tree cover loss in the Amazon. However, these alerts often do not reach immediately impacted populations. 
+
++ https://www.wri.org/insights/amazon-carbon-sink-indigenous-forests **Indigenous Forests as Carbon Sinks**
 
 ### Rondonia
 https://earthobservatory.nasa.gov/images/7548/deforestation-in-rondonia-brazil 
