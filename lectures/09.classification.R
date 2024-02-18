@@ -18,8 +18,8 @@ library(terra)
 library(ggplot2)
 library(gridExtra)
 
-im.list()             #we are going to list all the files we have from ImageRy
-                      #the image of the sun comes from the ESA
+im.list() #we are going to list all the files we have from ImageRy
+          #the image of the sun comes from the ESA
 
 #among the files, there is one related to the sun
 sun <- im.import("Solar_Orbiter_s_first_views_of_the_Sun_pillars.jpg")
