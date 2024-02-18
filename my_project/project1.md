@@ -1,5 +1,12 @@
 1. INTRODUCTION
-   + the aim of the project is ...
+   + the aim of the project is a spatio-ecological analysis of the Amazon biome and the importance of indigenous communities to protect the Amazon.
+   + case study: (*qui descrivo quali sono i parametri considerati nella mia analisi e quali i periodi temporali*)
+2. MATERIALS AND METHODS (*qui ci va la descrizione dei passaggi che faccio nello script, scrivere le funzioni usate!!*)
+   + Tools
+   + Approached used 
+3. RESULTS
+4. DISCUSSION
+5. SITOGRAPHY
 
 ## Idea generale
 vorrei fondamentalmente analizzare le immagini del bioma amazzonico e della sua deforestazione (si può per tutto il bacino? ha senso così in grande scala?), per poi confrontare i luoghi deforestati con i territori indigeni.
