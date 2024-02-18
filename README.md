@@ -10,3 +10,6 @@ Duccio Rocchini
 
 > **Note**
 > Scripts will be added lecture by lecture
+
+
+To see how to write a Readme on GitHub, check out tihis website https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax
