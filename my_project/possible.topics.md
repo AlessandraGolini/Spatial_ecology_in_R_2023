@@ -46,6 +46,8 @@ https://earthobservatory.nasa.gov/images/87176/when-a-definition-makes-a-forest-
 about 6 percent of the world’s forested area disappears from global maps when a forest is defined as an area with 30 percent tree cover, as opposed to 10 percent cover. 
 https://earthobservatory.nasa.gov/images/86986/is-that-a-forest-that-depends-on-how-you-define-it
 
+## global biosphere
+https://earthobservatory.nasa.gov/world-of-change/Biosphere
 
 ## global forest watch
 https://www.globalforestwatch.org/
