@@ -8,6 +8,8 @@
 4. DISCUSSION
 5. SITOGRAPHY
 
+esempio: https://virtuale.unibo.it/pluginfile.php/1944703/mod_resource/content/1/CasanovaDeMarco-exam%20spatial.pdf
+
 ## Idea generale
 vorrei fondamentalmente analizzare le immagini del bioma amazzonico e della sua deforestazione (si può per tutto il bacino? ha senso così in grande scala?), per poi confrontare i luoghi deforestati con i territori indigeni.
 Questo vuol dire che potrei prendere l'immagine da EO che è già a colori non-reali, oppure farla più complessa cercando di usare i dati di Copernicus (bisogna però restringere il campo). Eventualmente ho anche il NDVI di MODIS, mentre raigs e mapbiomas non so bene come usarli...
