@@ -34,4 +34,4 @@ setwd("C:/Users/aless/OneDrive - Alma Mater Studiorum Università di Bologna/Glo
 # Let's now import the data with a new function from terra: rast("name of the image")
 forest10 <- read_xml("c_gls_NDVI_PROD-DESC_201909210000_GLOBE_PROBAV_V2.2.1.xml")
 plotRGB(forest10, r=1, g=2, b=3)
-
+#NON FUNZ
