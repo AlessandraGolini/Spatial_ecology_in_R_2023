@@ -2,17 +2,29 @@
 # Golini Alessandra
 
 
-# the aim of this project is to investigate how the forest cover can change depending on the considered definition of forest.
-# in fact, we may consider an area forested if 30 percent of the land is covered with trees;
-# or if  there is 10 percent tree cover.
+# The aim of this project is to investigate the Amazon forest reduction of last decades and understand the importance of Indigenous populations for its protection.
+# To do so, 
 
 # Install the following packages
+install.packages("spatstat") #provides a comprehensive toolbox for analyzing spatial point pattern data. It includes functions for exploratory data analysis, model-fitting, simulation, and visualization of spatial point patterns.
+install.packages("terra") #package for spatial data manipulation and analysis. It provides methods for handling raster data, including reading, writing, processing, and analyzing large raster datasets
+install.packages("sdm") #species distribution modeling
+install.packages("rgdal") #to read and write raster and vector spatial data formats
+install.packages("overlap") #to calculate and visualize spatial overlap between different geographic features, such as polygons or points
+install.packages("devtools") #to streamline the process of developing, documenting, testing, and sharing R packages, other than installing packages from GitHub repositories
+devtools::install_github("ducciorocchini/imageRy") # install imagery
 
 # Recall the packages
-library(terra) 
-#provides a framework for handling raster data (gridded spatial data) and conducting various spatial analysis tasks efficiently.
+library(spatstat)
+library(terra) #provides a framework for handling raster data (gridded spatial data) and conducting various spatial analysis tasks efficiently.
 #It is designed to handle large datasets that may not fit into memory, making it suitable for working with big spatial data.
+library(sdm)
+library(rgdal)
+library(vegan)
+library(overlap)
+library(devtools)
 library(ncdf4) 
+library(imageRy)
 
 
 # First, set the working directory
