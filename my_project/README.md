@@ -44,3 +44,7 @@ https://www.raisg.org/en/ https://www.raisg.org/es/mapas/
 https://amazonia.mapbiomas.org/colecciones-de-mapbiomas-amazonia/ però forse non riesco ad accedere senza registrarmi??
 
 Las clasificaciones de cobertura y uso del suelo de las colecciones de MapBiomas Amazonía se basan en mosaicos LANDSAT. Se ha producido un mosaico para cada carta 1: 250.000, para cada uno de los años evaluados (1985-2022) . Cada mosaico es producido por la integración espacial de las distintas escenas LANDSAT presentes en cada carta y por la integración temporal píxel a píxel. Estos intervalos temporales fueron definidos en función de la variación en la fenología de las tipologías vegetales en cada uno de los países amazónicos y temas transversales, como estrategia para mejorar los resultados de la clasificación.
+
+
+### paper about it
+https://zslpublications.onlinelibrary.wiley.com/doi/full/10.1002/rse2.77 A Landsat composite covering all Amazonia for applications in ecology and conservation
