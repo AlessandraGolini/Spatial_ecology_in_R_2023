@@ -3,7 +3,7 @@
 # The aim of this project is to investigate the Amazon forest reduction of last two decades and understand the importance of Indigenous populations for its protection.
 # To do so, 
 
-#### Install the following packages
+##### Install the following packages #####
 install.packages("spatstat") #provides a comprehensive toolbox for analyzing spatial point pattern data. It includes functions for exploratory data analysis, 
 #model-fitting, simulation, and visualization of spatial point patterns.
 install.packages("terra")  #provides a framework for handling raster data (gridded spatial data) and conducting various spatial analysis tasks efficiently.
@@ -13,25 +13,29 @@ install.packages("rgdal") #to read and write raster and vector spatial data form
 install.packages("overlap") #to calculate and visualize spatial overlap between different geographic features, such as polygons or points
 install.packages("devtools") #to streamline the process of developing, documenting, testing, and sharing R packages, other than installing packages from GitHub repositories.
 devtools::install_github("ducciorocchini/imageRy") # install imagery
+install.packages("raster")
+install.packages("maps")
 
-#### Recall the packages used
-
+#### Recall the packages used ####
+library(maps)
+library(terra)
 library(raster)
 library(overlap)
 library(devtools)
 library(sf)
-library(dplyr) #useful to group raws of a data frame
+library(dplyr) #useful to gropu raws of a data frame
 
 # First, set the working directory
 setwd("C:/Users/aless/OneDrive - Alma Mater Studiorum Università di Bologna/Global Change Ecology and SDGs/Spatial Ecology in R/project")
 
-# Import data from RAISG
+##### Import data from RAISG #####
 ind <- rast("Tis/Tis_territoriosIndigenas.jpg")
 plot(ind)
 
 # Total deforestation points
 def <- rast("Def/deforestacion2001-2020.tif")
 cl <- colorRampPalette(c("black", "red", "yellow")) (100)
+cl1 <- colorRampPalette(c("black","blue", "pink", "magenta")) (100)
 plot(def, col = cl, cex = 1.5)
 
 # Amazon basin limits (lim, limr) and indigenous territories (tir)
@@ -44,57 +48,62 @@ prot <- st_read("Anps/ANP_departamental.shp")
 prot_nat <- st_read("Anps/ANP_nacional.shp")
 prot_forest <- st_read("Anps/ANP_ReservaFlorestal.shp")
 
-# Plot Natural Protected Areas
-plot(NA, xlim = c(-82.12228, -41.60457), ylim = c(-21.21057, 12.55144), xlab = "latitude", ylab = "longitude", main = "Ntural Protected Areas", asp = 1)
-plot(limr["shape_Area"], add = TRUE, col = "transparent", border = "red", lwd = 2, asp = 1)
-plot(prot["shape_Area"], add=TRUE, col = "green", asp=1)
-plot(prot_nat["shape_Area"], add = TRUE, col = "dark green", asp=1)
-plot(prot_forest["shape_Area"], add = TRUE, col = "light green", asp=1)
-# Add a legend
-legend("topleft", legend = c("Amazon limits", "Provincial NPAs", "National NPAs", "Forest reserve"), col = c("red", "green", "dark green", "light green"), pch = 15)
 
-# Plot Indigenous territories
-plot(NA, xlim = c(-82.12228, -41.60457), ylim = c(-21.21057, 12.55144), xlab = "latitude", ylab = "longitude", main = "Indigenous territories", asp = 1)
-plot(limr["shape_Area"], add=TRUE, col = "transparent", border = "red", lwd = 2, xlim = c(-82.12228, -41.60457), ylim = c(-21.21057, 12.55144))
-plot(tir["shape_Area"], add=TRUE, col ="yellow", asp=1)
-# Add a legend
-legend("topleft", legend = c("Amazon limits", "Indigenous territories"), col = c("red", "yellow"), pch = 15)
+##### Plots ####
 
-# Plot deforestation
-plot(NA, xlim = c(-82.12228, -41.60457), ylim = c(-21.21057, 12.55144), xlab = "latitude", ylab = "longitude", main = "Amazon deforestation 2000-2020", asp = 1)
-plot(limr["shape_Area"], add = TRUE, col = "transparent", border = "red", lwd = 2, asp = 1)
-plot(def, add = TRUE, col = cl, cex = 2, asp = 1)
+## Plot Natural Protected Areas (NPAs)
+# Setting the map limits
+xlim <- c(-82.12228, -41.60457)
+ylim <- c(-21.21057, 12.55144)
+# Creating the graphics window with defined limits and adding world boundaries
+plot(NA, xlim = xlim, ylim = ylim, xlab = "longitude", ylab = "latitude", main = "Natural Protected Areas", asp = 1)
+map("world", boundary = TRUE, interior = TRUE, add = TRUE)
+# Plotting area boundaries
+plot(limr, add = TRUE, col = "transparent", border = "red", lwd = 3)
+plot(prot, add = TRUE, col = "green")
+plot(prot_nat, add = TRUE, col = "darkgreen")
+plot(prot_forest, add = TRUE, col = "lightgreen")
 # Add a legend
-legend("topleft", legend = c("Amazon limits", "Deforestation"), col = c("red", cl), pch = 15)
+legend("topleft", legend = c("Amazon limits", "Provincial NPAs", "National NPAs", "Forest reserve"), col = c("red", "green", "dark green", "light green"), pch = 15, cex=0.7)
+
+## Plot Indigenous territories
+# Creating the graphics window with defined limits and adding world boundaries
+plot(NA, xlim = xlim, ylim = ylim, xlab = "longitude", ylab = "latitude", main = "Natural Protected Areas", asp = 1)
+map("world", boundary = TRUE, interior = TRUE, add = TRUE)
+# Plotting area boundaries
+plot(limr["shape_Area"], add=TRUE, col = "transparent", border = "red", lwd = 3)
+plot(tir["shape_Area"], add=TRUE, col ="yellow")
+# Add a legend
+legend("topleft", legend = c("Amazon limits", "Indigenous territories"), col = c("red", "yellow"), pch = 15, cex = 0.7)
+
+## Plot deforestation
+# Creating the graphics window with defined limits and adding world boudaries
+plot(NA, xlim = xlim, ylim = ylim, xlab = "longitude", ylab = "latitude", main = "Natural Protected Areas", asp = 1)
+map("world", boundary = TRUE, interior = TRUE, add = TRUE, fill = FALSE)
+# Plotting area boundaries
+plot(limr["shape_Area"], add=TRUE, col = "transparent", border = "red", lwd = 3)
+plot(def, add = TRUE, col = cl1)
+# Add a legend
+legend("topleft", legend = c("Amazon limits", "Deforestation"), col = c("red", cl1), pch = 15, cex=0.7)
 
 # One plot
-plot(NA, xlim = c(-82.12228, -41.60457), ylim = c(-21.21057, 12.55144), xlab = "latitude", ylab = "longitude", main = "Amazon deforestation 2000-2020", asp = 1)
-plot(limr["shape_Area"], add = TRUE, col = "transparent", border = "red", lwd = 2, asp = 1)
-plot(prot["shape_Area"], add=TRUE, col = "green", asp=1)
-plot(prot_nat["shape_Area"], add = TRUE, col = "dark green", asp=1)
-plot(prot_forest["shape_Area"], add = TRUE, col = "light green", asp=1)
-plot(tir["shape_Area"], add=TRUE, col ="yellow", asp=1)
-#plot(def, add = TRUE, col = cl, cex = 2, asp = 1)
+plot(NA, xlim = xlim, ylim = ylim, xlab = "longitude", ylab = "latitude", main = "Deforestation, NPAs and Indigenous population distribition", asp = 1)
+map("world", boundary = TRUE, interior = TRUE, add = TRUE, fill = FALSE)
+# Plotting area boundaries
+plot(limr, add = TRUE, col = "transparent", border = "red", lwd = 3)
+plot(prot, add = TRUE, col = "green")
+plot(prot_nat, add = TRUE, col = "darkgreen")
+plot(prot_forest, add = TRUE, col = "lightgreen")
+plot(tir["shape_Area"], add=TRUE, col =adjustcolor("yellow", alpha=0.5))
+plot(def, add = TRUE, col = cl1)
 # Add a legend
-legend("topleft", legend = c("Amazon limits", "Provincial NPAs", "National NPAs", "Forest reserve", "Indigenous territories", "Deforestation"), col = c("red","green", "dark green", "light green", "yellow", cl), pch = 15, cex = 0.5)
+legend("topleft", legend = c("Amazon limits", "Provincial NPAs", "National NPAs", "Forest reserve", "Indigenous territories", "Deforestation"), col = c("red","green", "darkgreen", "lightgreen", "yellow", cl1), pch = 15, cex = 0.5)
 
-#### Some statistical analysis on the RAGIS data
+##### Some statistical analysis on the RAGIS data #####
 
-## Percentage of NPAs over the total area of the RAGIS domain
-# I use as reference variable the one descriing the area that's common to either 
-# NPAs dataset and RAGIS limits dataset, which is "area_sig_h", measured in hectars (ha).
-totNPA <- sum(c(prot$area_sig_h, prot_nat$area_sig_h, prot_forest$area_sig_h))
-totRAGIS <- limr$area_sig_h
-NPA_perc <- (totNPA/totRAGIS)*100
-round(NPA_perc, 1) #32.1% of the Amazon forest is somehow a natural protected area
+### Compute a frequency table for NPAs and indigenous territories 
+### to better understand which countries have more of them.
 
-## Percentage of indigenous territories
-tot_ind <- sum(tir$area_sig_h)
-ind_perc <- (tot_ind/totRAGIS)*100
-round(ind_perc,1) #28.9% of the total Amazon forest is classified as indigenous territory
-
-
-## Compute which countries have more PNAs and indigenous territories, using a frequency table.
 # Frequencies for each country:
 f_npa_p <- table(prot$pais)
 f_npa_n <- table(prot_nat$pais)
@@ -159,13 +168,14 @@ freq_RAISG$NPAs <- freq_RAISG$NPA_provincial + freq_RAISG$NPA_national + freq_RA
 freq_RAISG$area_NPAs <- freq_RAISG$area_f + freq_RAISG$area_n + freq_RAISG$area_p
 
 # Calculate the totals and add a row to the data frame
-numeric_columns <- freq_RAISG[, -1]
-numeric_columns <- apply(numeric_columns, 2, as.numeric)
-freq_RAISG[ ,-1]<- numeric_columns
-totals <- colSums(numeric_columns)
-Total <- c("Total", totals)
-freq_RAISG <- rbind(freq_RAISG, Total)
+totals <- colSums(freq_RAISG[, -1])
+total_row <- c("Total", totals)
+freq_RAISG <- rbind(freq_RAISG, total_row)
+# Convert the num columns again in numeric data
+num_columns <- c("NPA_provincial", "NPA_national", "NPA_forestal", "ind_territories", "area_p", "area_n", "area_f", "area_ind", "NPAs", "area_NPAs")
+freq_RAISG[num_columns] <- lapply(freq_RAISG[num_columns], as.numeric)
 
+str(freq_RAISG)
 
 # Reordering the columns
 freq_RAISG <- freq_RAISG %>%
@@ -173,3 +183,41 @@ freq_RAISG <- freq_RAISG %>%
 freq_RAISG
 
 summary_RAISG <- freq_RAISG[c("country", "NPAs","area_NPAs", "ind_territories", "area_ind")]
+str(summary_RAISG)
+
+## Relative frequencies of NPAs, indigenous territories and their areas, per country:
+summary_RAISG$rel_NPAs <- summary_RAISG$NPAs / summary_RAISG$NPAs[10]
+summary_RAISG$rel_ind <- summary_RAISG$ind_territories / summary_RAISG$ind_territories[10]
+summary_RAISG$rel_areaNPA <- summary_RAISG$area_NPAs / summary_RAISG$area_NPAs[10]
+summary_RAISG$rel_areaind<- summary_RAISG$area_ind / summary_RAISG$area_ind[10]
+
+summary_RAISG <- summary_RAISG[c("country", "NPAs","rel_NPAs","area_NPAs", "rel_areaNPA","ind_territories", "rel_ind", "area_ind","rel_areaind")]
+round(summary_RAISG[ ,-1], 2)
+str(summary_RAISG)
+
+## Percentage of NPAs over the total area of the RAGIS domain
+# I use as reference variable the one descriing the area that's common to either 
+# NPAs dataset and RAGIS limits dataset, which is "area_sig_h", measured in hectars (ha).
+totNPA <- sum(c(prot$area_sig_h, prot_nat$area_sig_h, prot_forest$area_sig_h))
+totRAISG <- limr$area_sig_h
+NPA_perc <- (totNPA/totRAISG)*100
+round(NPA_perc, 1) #32.1% of the Amazon forest is somehow a natural protected area
+
+## Percentage of indigenous territories
+tot_ind <- sum(tir$area_sig_h)
+ind_perc <- (tot_ind/totRAISG)*100
+round(ind_perc,1) #28.9% of the total Amazon forest is classified as indigenous territory
+
+
+### Frequency table for deforestation, to better understand its spatial and temporal distribution.
+str(def) #SpatRaster
+# Area of interest
+extent <- terra::ext(c(xlim[1], xlim[2], ylim[1], ylim[2]))
+def_subset <- terra::crop(def, extent)
+
+# To extract temporal frequency from raster data I divide it into periods of 5 years:
+# Aggregate the raster into 5-year periods
+aggregated_raster <- terra::aggregate(def_subset, fact = c(5, 5, 1), fun = "mean")
+
+# Convert the aggregated raster into a dataframe
+aggregated_df <- terra::as.data.frame(aggregated_raster)
