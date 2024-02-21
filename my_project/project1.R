@@ -24,7 +24,7 @@ library(sf)
 # First, set the working directory
 setwd("C:/Users/aless/OneDrive - Alma Mater Studiorum Università di Bologna/Global Change Ecology and SDGs/Spatial Ecology in R/project")
 
-# Import data from RAIGS
+# Import data from RAIGS (https://www.amazoniasocioambiental.org/es/mapas/#api-anchor-home)
 ind <- rast("Tis/Tis_territoriosIndigenas.jpg")
 plot(ind)
 
