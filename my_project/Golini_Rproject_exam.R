@@ -20,7 +20,7 @@ library(raster)
 library(overlap)
 library(devtools)
 library(sf)
-library(dplyr) #useful to gropu raws of a data frame
+library(dplyr) #useful to group raws of a data frame
 
 # First, set the working directory
 setwd("C:/Users/aless/OneDrive - Alma Mater Studiorum Università di Bologna/Global Change Ecology and SDGs/Spatial Ecology in R/project")
