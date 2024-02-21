@@ -48,3 +48,7 @@ Las clasificaciones de cobertura y uso del suelo de las colecciones de MapBiomas
 
 ### paper about it
 https://zslpublications.onlinelibrary.wiley.com/doi/full/10.1002/rse2.77 A Landsat composite covering all Amazonia for applications in ecology and conservation
+
+non va bene, ma è già qualcosa 
+
+![immagine](https://github.com/AlessandraGolini/Spatial_ecology_in_R_2023/assets/146853793/f24408ab-5308-4d89-9304-637acf17d1da)
