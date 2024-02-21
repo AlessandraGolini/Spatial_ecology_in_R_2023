@@ -68,7 +68,7 @@ legend("topleft", legend = c("Amazon limits", "Provincial NPAs", "National NPAs"
 
 ## Plot Indigenous territories
 # Creating the graphics window with defined limits and adding world boundaries
-plot(NA, xlim = xlim, ylim = ylim, xlab = "longitude", ylab = "latitude", main = "Natural Protected Areas", asp = 1)
+plot(NA, xlim = xlim, ylim = ylim, xlab = "longitude", ylab = "latitude", main = "Indigenous territories", asp = 1)
 map("world", boundary = TRUE, interior = TRUE, add = TRUE)
 # Plotting area boundaries
 plot(limr["shape_Area"], add=TRUE, col = "transparent", border = "red", lwd = 3)
@@ -78,7 +78,7 @@ legend("topleft", legend = c("Amazon limits", "Indigenous territories"), col = c
 
 ## Plot deforestation
 # Creating the graphics window with defined limits and adding world boudaries
-plot(NA, xlim = xlim, ylim = ylim, xlab = "longitude", ylab = "latitude", main = "Natural Protected Areas", asp = 1)
+plot(NA, xlim = xlim, ylim = ylim, xlab = "longitude", ylab = "latitude", main = "Deforestation 2000-2020", asp = 1)
 map("world", boundary = TRUE, interior = TRUE, add = TRUE, fill = FALSE)
 # Plotting area boundaries
 plot(limr["shape_Area"], add=TRUE, col = "transparent", border = "red", lwd = 3)
