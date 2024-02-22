@@ -319,23 +319,13 @@ p2 <- ggplot(tabout, aes(x=class, y=y2012, color=class)) + geom_bar(stat="identi
 p1+p2                                                                          
 #in this way you can actually appreciate the amount of forest loss
 
-
-#### to deepen the analysis, it's appropriate to compute some vegetation cover indices
+#### to deepen the analysis, it would be appropriate to compute some vegetation cover indices, such as DVI and NDVI. They respectively are the difference between NIR-RED, 
+## and the normalized difference (NIR-RED)/(NIR+RED).
+## But, since the image used in this project only has three bands (1,2,3 for R,G,B), there is not the calculation of those indeces.
 ## DVI = DIFFERENCE VEGETATION INDEX is the difference between NIR and RED
-dvi2001 = rond2001[[1]] - rond2001[[2]]
-plot(dvi2001) # with only one layer because it is a difference 
 
-cl <- colorRampPalette(c("darkblue", "lightgreen", "yellow", "darkmagenta")) (100)
-plot(dvi2001, col = cl, main = "DVI")
-
-## it's possible to standardize the DVI: NORMALIZATION in order to compare data
 ## DVI = NIR - RED
 ## NDVI = (NIR - RED)/(NIR+RED)
 ##in this way the ranges of the indexes are the same
 ##the NDVI is always ranging from -1 =(0-255)/(0+255) to +1 =(255-0)/(255+0), while the DVI's range depends on the amount of data I have
 #the calculation is done pixel by pixel
-
-ndvi2001 = (rond2001[[1]] - rond2001[[2]]) / (rond2001[[1]] + rond2001[[2]])
-ndvi2001 = dvi2001 / (rond2001[[1]] + rond2001[[2]])
-plot(ndvi2001, col=cl, main="NDVI")
-# the new range is from -1 to 1 so it can be compared to any kind of image since the range will be the same
