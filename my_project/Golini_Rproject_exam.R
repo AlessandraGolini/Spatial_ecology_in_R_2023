@@ -1,7 +1,7 @@
 ##### R project for Monitoring Ecosystem Changes and Functioning Exam #####
 # Golini Alessandra
 # The aim of this project is to investigate the Amazon forest reduction of last two decades and understand the importance of Indigenous populations for its protection.
-# To do so, 
+# To do so, I focused my work on two type of data: the ones provided by RAISG, and the images downloaded by NASA Earth Observatory.
 
 ##### Install the following packages #####
 install.packages("spatstat") #provides a comprehensive toolbox for analyzing spatial point pattern data. It includes functions for exploratory data analysis, 
