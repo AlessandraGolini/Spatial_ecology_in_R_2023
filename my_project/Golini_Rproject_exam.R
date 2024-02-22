@@ -219,6 +219,7 @@ hist(def_no_na, col = "blue", main = "Distribution of deforestation values",
      xlab = "Year", ylab = "Frequency")
 
 ####################################################################################################
+
 ##### Rondonia deforestation #####
 # Uploading the image from Earth Observatory
 list.files() # from the directory
@@ -253,6 +254,88 @@ plot(rond_dif, col = cl,main = "Multitemporal change direction")
 rond2001c<- im.classify(rond2001, num_clusters=3)
 rond2001c
 plot(rond2001c[[1]], main = "Classes from 2001")
-legenda() 
+legend <- c("absent", "threatened", "present")
+
+rond2012c<- im.classify(rond2012, num_clusters=3)
+rond2012c
+plot(rond2012c[[1]], main = "Classes from 2012")
+# each class represent a particular type. 
+# For example, class2 points out the human interference
+
+# The proportion of each class can be found using a function 
+# that compute the frequency of the of pixels for each class:
+f2001 <- freq(rond2001c[[1]])
+f2001
+#it is the amount of pixels in class n1 and the number of pixels in class n2
+# the dominant class is the second one
+
+#let's extract the total number of pixel of each picture:
+tot2001 <- ncell(rond2001c[[1]])
+#ncell() counts the total number of pixels in rond2001 image
+#to get the frequency you divide the frequency of a certain class for the total number, multiplying per 100
+p2001 <- f2001*100/tot2001
+p2001
+#the third class represents the forests that has a percentage of 37.6%
+
+#now that we have the percentage we can do the same for 2006:
+f2012 <- freq(rond2012c[[1]])
+f2012
+tot2012 <- ncell(rond2012[[1]])
+tot2012
+p2012 = f2012*100/tot2012
+p2012
+#the third class represents the forests that has a percentage of 11.7%
+
+##now let's make a graph of these results
+#building the final table:
+class <- c("absent", "threatened", "present") #is the first column
+y2001 <- c(38, 39, 23) #second column
+y2012 <- c(12, 65, 23) #third column
+
+tabout <- data.frame(class, y2001, y2012)
+tabout
+#you finally have a table in which you have the values of 1992 and the ones of 2006
+
+#and let's use the package ggplot2 to make a graph
+##aes = aestheitcs is the class; the color will be related to the class;
+##the geometry
+# final plot
+p1 <- ggplot(tabout, aes(x=class, y=y2001, color=class)) + geom_bar(stat="identity", fill="white")
+p2 <- ggplot(tabout, aes(x=class, y=y2012, color=class)) + geom_bar(stat="identity", fill="white")
+p1
+p2
+
+dev.off()
+# Arrange the plots in a grid
+#grid.arrange(p1, p2, ncol=2)
+install.packages("patchwork")
+library(patchwork)
+p1+p2
+#but in this way we have different scales in the two graphs!
+
+# final output, rescaled
+p1 <- ggplot(tabout, aes(x=class, y=y2001, color=class)) + geom_bar(stat="identity", fill="white") + ylim(c(0,100))
+p2 <- ggplot(tabout, aes(x=class, y=y2012, color=class)) + geom_bar(stat="identity", fill="white") + ylim(c(0,100))
+p1+p2                                                                          
+#in this way you can actually appreciate the amount of forest loss
 
 
+#### to deepen the analysis, it's appropriate to compute some vegetation cover indices
+## DVI = DIFFERENCE VEGETATION INDEX is the difference between NIR and RED
+dvi2001 = rond2001[[1]] - rond2001[[2]]
+plot(dvi2001) # with only one layer because it is a difference 
+
+cl <- colorRampPalette(c("darkblue", "lightgreen", "yellow", "darkmagenta")) (100)
+plot(dvi2001, col = cl, main = "DVI")
+
+## it's possible to standardize the DVI: NORMALIZATION in order to compare data
+## DVI = NIR - RED
+## NDVI = (NIR - RED)/(NIR+RED)
+##in this way the ranges of the indexes are the same
+##the NDVI is always ranging from -1 =(0-255)/(0+255) to +1 =(255-0)/(255+0), while the DVI's range depends on the amount of data I have
+#the calculation is done pixel by pixel
+
+ndvi2001 = (rond2001[[1]] - rond2001[[2]]) / (rond2001[[1]] + rond2001[[2]])
+ndvi2001 = dvi2001 / (rond2001[[1]] + rond2001[[2]])
+plot(ndvi2001, col=cl, main="NDVI")
+# the new range is from -1 to 1 so it can be compared to any kind of image since the range will be the same
