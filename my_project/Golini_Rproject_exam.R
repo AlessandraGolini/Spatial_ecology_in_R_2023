@@ -24,6 +24,7 @@ library(overlap)
 library(devtools)
 library(sf)
 library(dplyr) #useful to gropu raws of a data frame
+library(imageRy)
 
 # First, set the working directory
 setwd("C:/Users/aless/OneDrive - Alma Mater Studiorum Università di Bologna/Global Change Ecology and SDGs/Spatial Ecology in R/project")
@@ -208,16 +209,50 @@ tot_ind <- sum(tir$area_sig_h)
 ind_perc <- (tot_ind/totRAISG)*100
 round(ind_perc,1) #28.9% of the total Amazon forest is classified as indigenous territory
 
-
 ### Frequency table for deforestation, to better understand its spatial and temporal distribution.
 str(def) #SpatRaster
-# Area of interest
-extent <- terra::ext(c(xlim[1], xlim[2], ylim[1], ylim[2]))
-def_subset <- terra::crop(def, extent)
+summary(def)
+# Remove missing values before creating the histogram
+def_no_na <- na.omit(def)
+# Create histogram
+hist(def_no_na, col = "blue", main = "Distribution of deforestation values",
+     xlab = "Year", ylab = "Frequency")
 
-# To extract temporal frequency from raster data I divide it into periods of 5 years:
-# Aggregate the raster into 5-year periods
-aggregated_raster <- terra::aggregate(def_subset, fact = c(5, 5, 1), fun = "mean")
+####################################################################################################
+##### Rondonia deforestation #####
+# Uploading the image from Earth Observatory
+list.files() # from the directory
+rond2001 <- rast("amazon_deforestation_20010811_lrg.jpg")
+rond2012<- rast("amazon_deforestation_20120718_lrg.jpg")
+plotRGB(rond2001, r=1, g=2, b=3)
+plotRGB(rond2012, r=1, g=2, b=3)
 
-# Convert the aggregated raster into a dataframe
-aggregated_df <- terra::as.data.frame(aggregated_raster)
+# Plot the two images together in a multiframe
+par(mfrow=c(2,1))
+plotRGB(rond2001, r=1, g=2, b=3)
+plotRGB(rond2012, r=1, g=2, b=3)
+
+# Having 3 components RGB, there can be used only 3 bands per time:
+# b2 = Blue; b3 = Green; b4 = Red. Since it is a real-color image, there is not the band b8 = NIR (near infrared).
+# And each band can be associated to a specific component, which can be changed.
+# For example, here the Red element is in the third band, the Blue in the first, and the Green in the second:
+plotRGB(rond2001, r=3, g=2, b=1)
+plotRGB(rond2012, r=3, g=2, b=1)
+
+plotRGB(rond2001, r=2, g=3, b=1) #you see the dense forestm in green and in violet you see the bare soil.
+plotRGB(rond2012, r=2, g=3, b=1)
+dev.off()
+
+# multitemporal change detection
+## making the difference between the rond2001[[1]] - rond2012[[1]]
+rond_dif = rond2001[[1]] - rond2012[[1]]
+cl <- colorRampPalette(c('red','brown', 'grey', 'blue')) (100)
+plot(rond_dif, col = cl,main = "Multitemporal change direction")
+
+## classification in clusters:
+rond2001c<- im.classify(rond2001, num_clusters=3)
+rond2001c
+plot(rond2001c[[1]], main = "Classes from 2001")
+legenda() 
+
+
