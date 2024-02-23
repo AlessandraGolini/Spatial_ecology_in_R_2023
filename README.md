@@ -5,14 +5,14 @@ Duccio Rocchini
 
 ## Main scripts in this repo 💻
  + In the "lectures" folder there are: 
-  + scripts on populations
-  + scripts on communities
-  + scripts on ecosystems
-  + scripts on remote sensing and spectral indices
-  + scripts on external data
+   + scripts on populations
+   + scripts on communities
+   + scripts on ecosystems
+   + scripts on remote sensing and spectral indices
+   + scripts on external data
 
 + In the "my_project" folder there are:
-  + notes,
+  + some notes,
   + script,
   + and pdf presentation
   about my exam of Spatial ecology in R   
