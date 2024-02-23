@@ -10,6 +10,7 @@ Duccio Rocchini
   + scripts on ecosystems
   + scripts on remote sensing and spectral indices
   + scripts on external data
+
 + In the "my_project" folder there are:
   + notes,
   + script,
